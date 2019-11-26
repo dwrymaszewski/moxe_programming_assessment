@@ -1,0 +1,15 @@
+{
+  "name": "moxe_programming_assessment",
+  "version": "0.0.0",
+  "description": "Small project that will hopefully get me hired at Moxe",
+  "main": "hello_world.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "moxe_programming_assessment"
+  },
+  "author": "Daniel Rymaszewski",
+  "license": "ISC"
+}
