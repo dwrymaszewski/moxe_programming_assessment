@@ -3,13 +3,15 @@
   // initialize_goods
   // initialize_catalog
   // initialize_taxes
-  var command_line, default_command_line_error, demo_commands, input_handler, main_prompt, readline, recognized_commands;
+  var bad_command_message, command_line, demo_commands, input_handler, main_prompt, readline, recognized_commands;
 
   readline = require('readline');
 
   demo_commands = require('./demo_baskets').demo_commands;
 
   main_prompt = 'Howdy!\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket" (pre-pre-alpha)\n\nType "exit" to quit.\n';
+
+  bad_command_message = "Command not recognized; please try again";
 
   command_line = readline.createInterface({
     input: process.stdin,
@@ -31,15 +33,12 @@
     throw "TODO: get this to pre-alpha";
   };
 
-  default_command_line_error = function() {
-    return console.log("Command not recognized; please try again");
-  };
-
   input_handler = function(input) {
+    console.log(recognized_commands);
     if (recognized_commands[input] != null) {
       return recognized_commands[input]();
     } else {
-      return default_command_line_error();
+      return bad_command_message;
     }
   };
 
@@ -50,5 +49,7 @@
   command_line.on('close', function() {
     return console.log("please hire me :D");
   });
+
+  exports.input_handler = input_handler;
 
 }).call(this);

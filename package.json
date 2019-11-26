@@ -18,6 +18,6 @@
   "author": "Daniel Rymaszewski",
 	"license": "ISC",
 	"mocha":{
-		"spec": "./**/*.test.js"
+		"spec": "./the_js_that_runs/**/*.test.js"
 	}
 }

@@ -15,6 +15,7 @@ main_prompt = '''Howdy!
 	Type "exit" to quit.
 
 	'''
+bad_command_message = "Command not recognized; please try again"
 
 command_line = readline.createInterface({
 	input: process.stdin,
@@ -27,15 +28,16 @@ recognized_commands.prompt = -> command_line.prompt()
 recognized_commands.exit = -> command_line.close()
 recognized_commands.custom_basket = -> throw "TODO: get this to pre-alpha"
 
-default_command_line_error = ->
-	console.log "Command not recognized; please try again"
+input_handler = (input)->
+	console.log recognized_commands
 
-input_handler = (input) ->
 	if recognized_commands[input]?
-		recognized_commands[input]()
+		return recognized_commands[input]()
 	else
-		default_command_line_error()
+		return bad_command_message
 
 command_line.prompt()
 command_line.on 'line', input_handler
 command_line.on 'close', -> console.log "please hire me :D"
+
+exports.input_handler = input_handler
