@@ -9,7 +9,7 @@
 
   demo_commands = require('./demo_baskets').demo_commands;
 
-  main_prompt = 'Howdy\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket()" (pre-pre-alpha)\n\nType "exit" to quit.\n';
+  main_prompt = 'Howdy!\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket" (pre-pre-alpha)\n\nType "exit" to quit.\n';
 
   command_line = readline.createInterface({
     input: process.stdin,
@@ -25,6 +25,10 @@
 
   recognized_commands.exit = function() {
     return command_line.close();
+  };
+
+  recognized_commands.custom_basket = function() {
+    throw "TODO: get this to pre-alpha";
   };
 
   default_command_line_error = function() {

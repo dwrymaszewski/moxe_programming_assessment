@@ -5,12 +5,12 @@
 readline = require 'readline'
 demo_commands = require('./demo_baskets').demo_commands
 
-main_prompt = '''Howdy
+main_prompt = '''Howdy!
 	Try typing the commands:
 	"demo_basket_1"
 	"demo_basket_2"
 	"demo_basket_3"
-	or try your luck at "custom_basket()" (pre-pre-alpha)
+	or try your luck at "custom_basket" (pre-pre-alpha)
 
 	Type "exit" to quit.
 
@@ -25,6 +25,7 @@ command_line = readline.createInterface({
 recognized_commands = demo_commands
 recognized_commands.prompt = -> command_line.prompt()
 recognized_commands.exit = -> command_line.close()
+recognized_commands.custom_basket = -> throw "TODO: get this to pre-alpha"
 
 default_command_line_error = ->
 	console.log "Command not recognized; please try again"
