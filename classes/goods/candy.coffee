@@ -1,0 +1,2 @@
+class candy extends good
+	

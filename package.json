@@ -5,7 +5,8 @@
   "main": "hello_world.js",
   "dependencies": {},
   "devDependencies": {
-    "coffeescript": "^2.4.1"
+    "coffeescript": "^2.4.1",
+    "mocha": "^6.2.2"
   },
   "scripts": {},
   "repository": {

@@ -1,0 +1,3 @@
+class tax
+	constructor: (@rate)->
+
