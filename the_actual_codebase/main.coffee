@@ -3,23 +3,18 @@
 # initialize_taxes
 
 readline = require 'readline'
-import 'demo_baskets'
-console.log demo_commands
+demo_commands = require('./demo_baskets').demo_commands
+
 main_prompt = '''Howdy
-Try typing the commands:
-"demo_basket_1"
-"demo_basket_2"
-"demo_basket_3"
-or try your luck at "custom_basket()" (pre-pre-alpha)
+	Try typing the commands:
+	"demo_basket_1"
+	"demo_basket_2"
+	"demo_basket_3"
+	or try your luck at "custom_basket()" (pre-pre-alpha)
 
-'''
+	Type "exit" to quit.
 
-input_handler = (input) =>
-	if input_commands[input]?
-		input_commands[input]()
-		command_line.close()
-	else
-		console.log "Command not recognized; please try again"
+	'''
 
 command_line = readline.createInterface({
 	input: process.stdin,
@@ -27,6 +22,19 @@ command_line = readline.createInterface({
 	prompt: main_prompt
 })
 
+recognized_commands = demo_commands
+recognized_commands.prompt = -> command_line.prompt()
+recognized_commands.exit = -> command_line.close()
+
+default_command_line_error = ->
+	console.log "Command not recognized; please try again"
+
+input_handler = (input) ->
+	if recognized_commands[input]?
+		recognized_commands[input]()
+	else
+		default_command_line_error()
+
 command_line.prompt()
 command_line.on 'line', input_handler
-command_line.on 'close', -> console.log "PEACE OUT"
+command_line.on 'close', -> console.log "please hire me :D"

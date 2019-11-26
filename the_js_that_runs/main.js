@@ -3,28 +3,13 @@
   // initialize_goods
   // initialize_catalog
   // initialize_taxes
-  var command_line, input_handler, main_prompt, readline;
+  var command_line, default_command_line_error, demo_commands, input_handler, main_prompt, readline, recognized_commands;
 
   readline = require('readline');
 
-  main_prompt = 'Howdy\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket()" (pre-pre-alpha)\n';
+  demo_commands = require('./demo_baskets').demo_commands;
 
-  global.junk = function() {
-    return console.log("you ran junk function GOOD JOB");
-  };
-
-  global.junk_too = function() {
-    return console.log('you ran a more different junk function . . .\nwhy did you do that?');
-  };
-
-  input_handler = (input) => {
-    if (global[input] != null) {
-      global[input]();
-      return command_line.close();
-    } else {
-      return console.log("try again, chuckles");
-    }
-  };
+  main_prompt = 'Howdy\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket()" (pre-pre-alpha)\n\nType "exit" to quit.\n';
 
   command_line = readline.createInterface({
     input: process.stdin,
@@ -32,12 +17,34 @@
     prompt: main_prompt
   });
 
+  recognized_commands = demo_commands;
+
+  recognized_commands.prompt = function() {
+    return command_line.prompt();
+  };
+
+  recognized_commands.exit = function() {
+    return command_line.close();
+  };
+
+  default_command_line_error = function() {
+    return console.log("Command not recognized; please try again");
+  };
+
+  input_handler = function(input) {
+    if (recognized_commands[input] != null) {
+      return recognized_commands[input]();
+    } else {
+      return default_command_line_error();
+    }
+  };
+
   command_line.prompt();
 
   command_line.on('line', input_handler);
 
   command_line.on('close', function() {
-    return console.log("PEACE OUT");
+    return console.log("please hire me :D");
   });
 
 }).call(this);
