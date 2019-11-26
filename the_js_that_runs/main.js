@@ -3,6 +3,41 @@
   // initialize_goods
   // initialize_catalog
   // initialize_taxes
-  console.log('Howdy\nTry typing the commands:\n"demo_basket_1()"\n"demo_basket_2()"\n"demo_basket_3()"\nor try your luck at "custom_basket()" (beta)');
+  var command_line, input_handler, main_prompt, readline;
+
+  readline = require('readline');
+
+  main_prompt = 'Howdy\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket()" (pre-pre-alpha)\n';
+
+  global.junk = function() {
+    return console.log("you ran junk function GOOD JOB");
+  };
+
+  global.junk_too = function() {
+    return console.log('you ran a more different junk function . . .\nwhy did you do that?');
+  };
+
+  input_handler = (input) => {
+    if (global[input] != null) {
+      global[input]();
+      return command_line.close();
+    } else {
+      return console.log("try again, chuckles");
+    }
+  };
+
+  command_line = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    prompt: main_prompt
+  });
+
+  command_line.prompt();
+
+  command_line.on('line', input_handler);
+
+  command_line.on('close', function() {
+    return console.log("PEACE OUT");
+  });
 
 }).call(this);
