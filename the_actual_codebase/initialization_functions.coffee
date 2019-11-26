@@ -29,7 +29,7 @@ initialize_goods: ->
 
 	a_snickers = new candy "Almond Snickers"
 	a_snickers_properties =
-		packaging = "crate"
+		packaging: "crate"
 		price_per_unit: 75.99
 		flavor: "almond"
 
@@ -38,7 +38,7 @@ initialize_goods: ->
 		price_per_unit: 55
 	
 	wine = new good "Wine"
-	wine_properties =
+	wine_properties = {}
 
 initialize_taxes: ->
 	sales_tax = new tax_with_exceptions .1, ["candy", "popcorn", "coffee"]
