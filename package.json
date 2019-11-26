@@ -4,7 +4,9 @@
   "description": "Small project that will hopefully get me hired at Moxe",
   "main": "hello_world.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
