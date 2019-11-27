@@ -1,5 +1,8 @@
+Tax_Interface = require('./../data_interfaces/tax_interface').Tax_Interface
+
 class Basket
 	items: []
+
 
 	add: (item_to_add)->
 		@items.push item_to_add
@@ -13,15 +16,30 @@ class Basket
 	
 	checkout: ->
 		for item in @items
-			item.apply_taxes(all_taxes)
+			item.apply_taxes Tax_Interface.get_all()
 
 		@print_receipt()
 
+
+# TODO: consider spinning this into a receipt class?
+
 	print_receipt: ->
-		total_taxes = 0
+		@sub_total = 0
+		@tax_total = 0
+		@grand_total = 0
+
 		for item in @items
-			total_taxes += item.total_taxes
+			console.log item.get_description_with_taxes()
+			@sub_total += item.get_price().amount
+			@tax_total += item.get_total_tax_price().amount
+		
+		console.log @get_sales_tax_line()
+		console.log @get_total_line()
 
+	get_sales_tax_line: ->
+		return "Sales Taxes: " + @tax_total
 
+	get_total_line: ->
+		return "Total: " + @grand_total
 
 exports.Basket = Basket

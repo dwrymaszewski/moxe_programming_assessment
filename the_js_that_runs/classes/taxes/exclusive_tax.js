@@ -15,7 +15,7 @@
       ref = this.exclusions;
       for (i = 0, len = ref.length; i < len; i++) {
         criterion = ref[i];
-        if (item[criterion] === true) {
+        if (item.good[criterion] === true) {
           apply_it = false;
           break;
         }

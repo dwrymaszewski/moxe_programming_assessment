@@ -4,7 +4,14 @@
 
   Item = require('./item').Item;
 
-  Bagged_Item = class Bagged_Item extends Item {};
+  Bagged_Item = (function() {
+    class Bagged_Item extends Item {};
+
+    Bagged_Item.prototype.packaging = "bag";
+
+    return Bagged_Item;
+
+  }).call(this);
 
   exports.Bagged_Item = Bagged_Item;
 

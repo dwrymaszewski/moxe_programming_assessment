@@ -7,7 +7,7 @@ class Exclusive_Tax extends Tax
 	should_apply: (item)->
 		apply_it = true
 		for criterion in @exclusions
-			if item[criterion] is true
+			if item.good[criterion] is true
 				apply_it = false
 				break
 		return apply_it

@@ -12,13 +12,14 @@
       return true;
     }
 
-    apply_to(item) {
-      var tax_amount;
-      tax_amount = item.price.amount * this.rate;
-      return item[this.name] = {
-        amount: this.round_tax(tax_amount),
-        currency: item.price.currency
+    get_tax_price(price) {
+      var tax_price, taxable_amount;
+      taxable_amount = price.amount;
+      tax_price = {
+        amount: this.round_tax(taxable_amount),
+        currency: price.currency
       };
+      return tax_price;
     }
 
     round_tax(amount) {

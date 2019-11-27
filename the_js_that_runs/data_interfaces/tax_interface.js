@@ -3,16 +3,13 @@
   var Tax_Interface;
 
   Tax_Interface = class Tax_Interface {
-    static insert(tax) {
-      return global.all_taxes[tax.name] = tax;
-    }
+    // @insert: (tax)->
+    // 	global.all_taxes[tax.name] = tax
 
-    static find(tax_name) {
-      return global.all_taxes[tax_name];
-    }
-
+    // @find: (tax_name)->
+    // 	return global.all_taxes[tax_name]
     static get_all() {
-      return global.all_taxes;
+      return Object.values(global.all_taxes);
     }
 
   };

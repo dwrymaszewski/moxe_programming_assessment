@@ -1,5 +1,3 @@
-Tax_Interface = require('./../../data_interfaces/tax_interface').Tax_Interface
-
 class Item
 	taxes_applied: {}
 
@@ -30,22 +28,35 @@ class Item
 		return @get_price().amount + total_taxed_amount
 
 	get_total_tax_price: ->
-		for 
+		@total_tax_price = 
+			amount: 0
+			currency: @get_price()currency
+
+		for tax_price in Object.values @taxes_applied
+			@total_tax_price.amount += tax_price.amount
+
+		return @total_tax_price
 	
 	flag_imported: ->
 		@imported = true
 
 	apply_taxes: (taxes)->
-		for tax_type in taxes
+		for tax in taxes
 			if tax.should_apply @
-				apply_tax tax
+				@apply_tax tax
 				# tax_price = tax.get_tax_price @price
 
 	apply_tax: (tax)->
+		console.log "what be tax", tax
+		console.log "what taxes be applied", @taxes_applied
+
 		if @taxes_applied[tax.name]?
 			throw "The tax #{tax.name} has already been applied to this item"
 		else
 			tax_price = tax.get_tax_price @price
 			@taxes_applied[tax.name] = tax_price
+
+	remove_tax: (tax)->
+		delete @taxes_applied[tax.name]
 
 exports.Item = Item
