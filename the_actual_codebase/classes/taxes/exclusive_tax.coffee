@@ -1,4 +1,4 @@
-class exclusive_tax extends tax
+class Exclusive_tax extends Tax
 
 	set_exclusions: (@exclusions)->
 		

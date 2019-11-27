@@ -1,3 +1,3 @@
 # this file name is kinda silly
-class coffee extends good
+class Coffee extends Good
 	coffee: true

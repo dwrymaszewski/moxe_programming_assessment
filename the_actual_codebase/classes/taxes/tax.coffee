@@ -1,4 +1,4 @@
-class tax
+class Tax
 	constructor: (@name, @rate)->
 
 	should_apply: (item)-> true
@@ -11,7 +11,9 @@ class tax
 
 	round_tax: (amount)->
 		switch
-			default
+			when false
+				throw "how did you get past 'when false'?"
+			else
 				return @round_to_nickel(amount)
 
 	round_to_nickel: (amount)->

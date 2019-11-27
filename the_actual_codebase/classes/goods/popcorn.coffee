@@ -1,2 +1,2 @@
-class popcorn extends good
+class Popcorn extends Good
 	popcorn: true

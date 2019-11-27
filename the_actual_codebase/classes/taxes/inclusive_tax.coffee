@@ -1,6 +1,6 @@
 tax = requires('./tax').tax
 
-class inclusive_tax extends tax
+class Inclusive_tax extends Tax
 
 	set_inclusions: (@inclusions)->
 

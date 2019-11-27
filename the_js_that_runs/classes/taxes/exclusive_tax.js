@@ -3,12 +3,26 @@
   var exclusive_tax;
 
   exclusive_tax = class exclusive_tax extends tax {
-    apply_to_good(good) {
-      if (true) {
-        return "sup";
+    set_exclusions(exclusions) {
+      this.exclusions = exclusions;
+    }
+
+    should_apply(item) {
+      var apply_it, criterion, i, len, ref;
+      apply_it = true;
+      ref = this.exclusions;
+      for (i = 0, len = ref.length; i < len; i++) {
+        criterion = ref[i];
+        if (item[criterion] === true) {
+          apply_it = false;
+          break;
+        }
       }
+      return apply_it;
     }
 
   };
+
+  exports.exclusive_tax = exclusive_tax;
 
 }).call(this);

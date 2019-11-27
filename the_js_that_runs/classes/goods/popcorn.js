@@ -2,6 +2,13 @@
 (function() {
   var popcorn;
 
-  popcorn = class popcorn extends good {};
+  popcorn = (function() {
+    class popcorn extends good {};
+
+    popcorn.prototype.popcorn = true;
+
+    return popcorn;
+
+  }).call(this);
 
 }).call(this);

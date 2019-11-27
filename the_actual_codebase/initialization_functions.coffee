@@ -1,44 +1,23 @@
 initialize_goods: ->
-	skittles = new candy "Skittles"
-	skittles_properties =
-		unit: "lb"
-		packaging: "bag"
-		price_per_unit: 1
+	skittles = new Candy "Skittles", 1, "lb"
 
-	walkman = new good "Walkman"
-	walkman_properties = 
-		price_per_unit: 99.99
+	walkman = new Good "Walkman", 99.99
 
-	popcorn = new popcorn "microwave Popcorn"
-	popcorn_properties =
-		packaging: "bag"
-		price_per_unit: .99
-		preperation_method: "microwave"
+	popcorn = new Popcorn "microwave Popcorn", .99
 
-	vh_coffee = new coffee "Vanilla-Hazelnut Coffee"
-	vh_coffee_properties =
-		packaging: "bag"
-		price_per_unit: 11
-		flavor: "vanilla-hazlenut"
-		imported: true
+	vh_coffee = new Coffee "Vanilla-Hazelnut Coffee", 11
 
-	vespa = new good "Vespa"
-	vespa_properties =
-		price_per_unit: 15001.25
-		imported: true
+	vespa = new Good "Vespa", 15001.25
 
-	a_snickers = new candy "Almond Snickers"
-	a_snickers_properties =
-		packaging: "crate"
-		price_per_unit: 75.99
-		flavor: "almond"
+	a_snickers = new Candy "Almond Snickers", 75.99
 
-	discman = new good "Discman"
-	discman_properties =
-		price_per_unit: 55
-	
-	wine = new good "Wine"
-	wine_properties = {}
+	discman = new Good "Discman", 55
+
+	wine = new Good "Wine", 10
+
+	ft_coffee = new Coffee "Fair-Trade Coffee", 997.99/300, "lb"
+
+	global.all_goods = {skittles, walkman, popcorn, vh_coffee, vespa, a_snickers, discman, wine, ft_coffee}
 
 initialize_taxes: ->
 	sales_tax = new exclusive_tax "Basic Sales Tax", .1

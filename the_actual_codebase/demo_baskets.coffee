@@ -1,18 +1,18 @@
 demo_basket_1 = ->
-	basket = new basket()
+	basket = new Basket()
 	basket.add skittles_16
 	basket.add walkman
 	basket.add popcorn
 	basket.checkout()
 
 demo_basket_2 = ->
-	basket = new basket()
+	basket = new Basket()
 	basket.add coffee_vh
 	basket.add vespa
 	basket.checkout()
 
 demo_basket_3 = ->
-	basket = new basket()
+	basket = new Basket()
 	basket.add snickers_a
 	basket.add discman
 	basket.add wine

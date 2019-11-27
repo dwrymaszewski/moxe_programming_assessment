@@ -5,7 +5,11 @@
   good = class good {
     constructor(description) {
       this.description = description;
-      this.price;
+    }
+
+    set_price(price, unit_of_measure) {
+      this.price = price;
+      this.unit_of_measure = unit_of_measure;
     }
 
     apply_taxes(tax_array) {

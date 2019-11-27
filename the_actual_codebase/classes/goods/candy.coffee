@@ -1,2 +1,2 @@
-class candy extends good
+class Candy extends Good
 	candy: true

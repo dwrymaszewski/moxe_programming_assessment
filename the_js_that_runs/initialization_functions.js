@@ -2,52 +2,25 @@
 (function() {
   ({
     initialize_goods: function() {
-      var a_snickers, a_snickers_properties, discman, discman_properties, popcorn, popcorn_properties, skittles, skittles_properties, vespa, vespa_properties, vh_coffee, vh_coffee_properties, walkman, walkman_properties, wine, wine_properties;
-      skittles = new candy("Skittles");
-      skittles_properties = {
-        unit: "lb",
-        packaging: "bag",
-        price_per_unit: 1
-      };
-      walkman = new good("Walkman");
-      walkman_properties = {
-        price_per_unit: 99.99
-      };
-      popcorn = new popcorn("microwave Popcorn");
-      popcorn_properties = {
-        packaging: "bag",
-        price_per_unit: .99,
-        preperation_method: "microwave"
-      };
-      vh_coffee = new coffee("Vanilla-Hazelnut Coffee");
-      vh_coffee_properties = {
-        packaging: "bag",
-        price_per_unit: 11,
-        flavor: "vanilla-hazlenut",
-        imported: true
-      };
-      vespa = new good("Vespa");
-      vespa_properties = {
-        price_per_unit: 15001.25,
-        imported: true
-      };
-      a_snickers = new candy("Almond Snickers");
-      a_snickers_properties = {
-        packaging: "crate",
-        price_per_unit: 75.99,
-        flavor: "almond"
-      };
-      discman = new good("Discman");
-      discman_properties = {
-        price_per_unit: 55
-      };
-      wine = new good("Wine");
-      return wine_properties = {};
+      var a_snickers, discman, ft_coffee, popcorn, skittles, vespa, vh_coffee, walkman, wine;
+      skittles = new Candy("Skittles", 1, "lb");
+      walkman = new Good("Walkman", 99.99);
+      popcorn = new Popcorn("microwave Popcorn", .99);
+      vh_coffee = new Coffee("Vanilla-Hazelnut Coffee", 11);
+      vespa = new Good("Vespa", 15001.25);
+      a_snickers = new Candy("Almond Snickers", 75.99);
+      discman = new Good("Discman", 55);
+      wine = new Good("Wine", 10);
+      ft_coffee = new Coffee("Fair-Trade Coffee", 997.99 / 300, "lb");
+      return global.all_goods = {skittles, walkman, popcorn, vh_coffee, vespa, a_snickers, discman, wine, ft_coffee};
     },
     initialize_taxes: function() {
       var import_duty, sales_tax;
-      sales_tax = new tax_with_exceptions(.1, ["candy", "popcorn", "coffee"]);
-      return import_duty = new tax_with_applications(.05, ["imported"]);
+      sales_tax = new exclusive_tax("Basic Sales Tax", .1);
+      sales_tax.set_exclusions(["candy", "popcorn", "coffee"]);
+      import_duty = new inclusive_tax("Import Duty", .05);
+      import_duty.set_inclusions(["imported"]);
+      return global.all_taxes = {sales_tax, import_duty};
     },
     initialize_catalog: function() {}
   });

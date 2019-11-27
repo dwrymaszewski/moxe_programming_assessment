@@ -3,6 +3,13 @@
   // this file name is kinda silly
   var coffee;
 
-  coffee = class coffee extends good {};
+  coffee = (function() {
+    class coffee extends good {};
+
+    coffee.prototype.coffee = true;
+
+    return coffee;
+
+  }).call(this);
 
 }).call(this);

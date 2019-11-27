@@ -2,6 +2,13 @@
 (function() {
   var candy;
 
-  candy = class candy extends good {};
+  candy = (function() {
+    class candy extends good {};
+
+    candy.prototype.candy = true;
+
+    return candy;
+
+  }).call(this);
 
 }).call(this);
