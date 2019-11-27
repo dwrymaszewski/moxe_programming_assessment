@@ -7,12 +7,19 @@ class Basket
 	remove: (item_to_remove)->
 		@items = @items.filter item -> item.name isnt item_to_remove.name
 
+	show_contents: ->
+		for item in items
+			console.log item.get_description()
+	
 	checkout: ->
+		@apply_taxes()
+		@print_receipt()
+
+	apply_taxes: ->
 		for item in @items
 			item.apply_taxes()
-		
-		@create_receipt()
+	
+	print_receipt: ->
 
-	create_receipt: ->
 
 exports.Basket = Basket

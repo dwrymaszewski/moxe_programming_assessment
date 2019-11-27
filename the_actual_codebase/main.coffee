@@ -1,12 +1,6 @@
-# initialize_goods
-# initialize_catalog
-# initialize_taxes
-
 readline = require 'readline'
 initialization_functions = require('./initialization_functions').initializations
 demo_commands = require('./demo_baskets').demo_commands
-
-console.log initialization_functions
 
 initialization_functions.initialize_goods()
 initialization_functions.initialize_items()
@@ -22,7 +16,7 @@ main_prompt = '''Howdy!
 	Type "exit" to quit.
 
 	'''
-bad_command_message = "Command not recognized; please try again"
+
 
 command_line = readline.createInterface({
 	input: process.stdin,
@@ -35,8 +29,10 @@ recognized_commands.prompt = -> command_line.prompt()
 recognized_commands.exit = -> command_line.close()
 recognized_commands.custom_basket = -> throw "TODO: get this to pre-alpha"
 
-input_handler = (input)->
 
+bad_command_message = "Command not recognized; please try again"
+
+input_handler = (input)->
 	if recognized_commands[input]?
 		return recognized_commands[input]()
 	else

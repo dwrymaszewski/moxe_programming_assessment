@@ -37,22 +37,16 @@
       wine: new Good("Wine", 10),
       ft_coffee: new Coffee("Fair-Trade Coffee", 997.99 / 300, "lb")
     };
-    console.log("goods_bucket", goods_bucket);
     all_goods = {};
     for (computer_name in goods_bucket) {
       good_object = goods_bucket[computer_name];
-      console.log("computer_name", computer_name);
-      console.log("good_object", good_object);
       all_goods[computer_name] = good_object;
     }
-    console.log("all_goods", all_goods);
     return global.all_goods = all_goods;
   };
 
   initialize_items = function() {
     var all_items, computer_name, item_bucket, item_object;
-    console.log("this is running");
-    console.log(global);
     item_bucket = {
       skittles_16: new Bagged_Item(Good_Interface.find("skittles"), 16),
       walkman: new Item(Good_Interface.find("walkman")),
@@ -69,11 +63,7 @@
       item_object = item_bucket[computer_name];
       all_items[computer_name] = item_object;
     }
-    console.log("this is running");
-    console.log(global);
-    global.all_items = all_items;
-    console.log("this is ran");
-    return console.log(global);
+    return global.all_items = all_items;
   };
 
   initialize_taxes = function() {

@@ -14,17 +14,33 @@
         }));
       }
 
-      checkout() {
-        var i, item, len, ref;
-        ref = this.items;
-        for (i = 0, len = ref.length; i < len; i++) {
-          item = ref[i];
-          item.apply_taxes();
+      show_contents() {
+        var i, item, len, results;
+        results = [];
+        for (i = 0, len = items.length; i < len; i++) {
+          item = items[i];
+          results.push(console.log(item.get_description()));
         }
-        return this.create_receipt();
+        return results;
       }
 
-      create_receipt() {}
+      checkout() {
+        this.apply_taxes();
+        return this.print_receipt();
+      }
+
+      apply_taxes() {
+        var i, item, len, ref, results;
+        ref = this.items;
+        results = [];
+        for (i = 0, len = ref.length; i < len; i++) {
+          item = ref[i];
+          results.push(item.apply_taxes());
+        }
+        return results;
+      }
+
+      print_receipt() {}
 
     };
 

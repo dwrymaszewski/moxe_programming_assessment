@@ -22,23 +22,14 @@ initialize_goods = ->
 		wine: new Good "Wine", 10
 		ft_coffee: new Coffee "Fair-Trade Coffee", 997.99/300, "lb"
 
-	console.log "goods_bucket", goods_bucket
-
 	all_goods = {}
 	for computer_name, good_object of goods_bucket
-		console.log "computer_name", computer_name
-		console.log "good_object", good_object
 		all_goods[computer_name] = good_object
-
-	console.log "all_goods", all_goods
 
 	global.all_goods = all_goods
 
+
 initialize_items = ->
-	console.log "this is running"
-	console.log global
-
-
 	item_bucket = 
 		skittles_16: new Bagged_Item Good_Interface.find("skittles"), 16
 		walkman: new Item Good_Interface.find("walkman")
@@ -54,13 +45,8 @@ initialize_items = ->
 	for computer_name, item_object of item_bucket
 		all_items[computer_name] = item_object
 
-	console.log "this is running"
-	console.log global
-
 	global.all_items = all_items
 
-	console.log "this is ran"
-	console.log global
 
 initialize_taxes = ->
 	sales_tax = new Exclusive_Tax "Basic Sales Tax", .1

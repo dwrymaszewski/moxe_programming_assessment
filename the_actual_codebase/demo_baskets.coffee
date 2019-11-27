@@ -1,11 +1,7 @@
 Basket = require('./classes/basket').Basket
 Item_Interface = new require('./data_interfaces/item_interface').Item_Interface
 
-console.log Item_Interface
-
 demo_basket_1 = ->
-	console.log global
-	console.log global.global
 	basket = new Basket()
 	basket.add Item_Interface.find "skittles_16"
 	basket.add Item_Interface.find "walkman"
