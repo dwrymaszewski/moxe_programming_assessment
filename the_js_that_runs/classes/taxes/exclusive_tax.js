@@ -2,7 +2,7 @@
 (function() {
   var Exclusive_Tax, Tax;
 
-  Tax = requires('./tax').Tax;
+  Tax = require('./tax').Tax;
 
   Exclusive_Tax = class Exclusive_Tax extends Tax {
     set_exclusions(exclusions) {

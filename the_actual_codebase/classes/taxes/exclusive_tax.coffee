@@ -1,4 +1,4 @@
-Tax = requires('./tax').Tax
+Tax = require('./tax').Tax
 
 class Exclusive_Tax extends Tax
 

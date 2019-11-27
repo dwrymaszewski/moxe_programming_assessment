@@ -7,6 +7,8 @@ Bottled_Item = require('./classes/items/bottled_item').Bottled_Item
 Crated_Item = require('./classes/items/crated_item').Crated_Item
 Item = require('./classes/items/item').Item
 Good_Interface = require('./data_interfaces/good_interface').Good_Interface
+Exclusive_Tax = require('./classes/taxes/exclusive_tax').Exclusive_Tax
+Inclusive_Tax = require('./classes/taxes/inclusive_tax').Inclusive_Tax
 
 initialize_goods = ->
 	goods_bucket = 
@@ -48,7 +50,8 @@ initialize_items = ->
 		wine: new Bottled_Item( Good_Interface.find("wine") ).flag_imported()
 		coffee_300: new Bagged_Item Good_Interface.find("ft_coffee"), 300
 
-	for computer_name, item_object in item_bucket
+	all_items = {}
+	for computer_name, item_object of item_bucket
 		all_items[computer_name] = item_object
 
 	console.log "this is running"
@@ -60,10 +63,10 @@ initialize_items = ->
 	console.log global
 
 initialize_taxes = ->
-	sales_tax = new exclusive_tax "Basic Sales Tax", .1
+	sales_tax = new Exclusive_Tax "Basic Sales Tax", .1
 	sales_tax.set_exclusions ["candy", "popcorn", "coffee"]
 
-	import_duty = new inclusive_tax "Import Duty", .05
+	import_duty = new Inclusive_Tax "Import Duty", .05
 	import_duty.set_inclusions ["imported"]
 
 	global.all_taxes = {sales_tax, import_duty}

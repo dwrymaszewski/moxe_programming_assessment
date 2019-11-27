@@ -2,7 +2,7 @@
 (function() {
   var Inclusive_Tax, Tax;
 
-  Tax = requires('./tax').Tax;
+  Tax = require('./tax').Tax;
 
   Inclusive_Tax = class Inclusive_Tax extends Tax {
     set_inclusions(inclusions) {

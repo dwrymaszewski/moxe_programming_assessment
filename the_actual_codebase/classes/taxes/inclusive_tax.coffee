@@ -1,4 +1,4 @@
-Tax = requires('./tax').Tax
+Tax = require('./tax').Tax
 
 class Inclusive_Tax extends Tax
 
