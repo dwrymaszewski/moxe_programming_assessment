@@ -1,24 +1,25 @@
 Basket = require('./classes/basket').Basket
+Item_Interface = require('./data_interfaces/item_interface').Item_Interface
 
 demo_basket_1 = ->
 	basket = new Basket()
-	basket.add skittles_16
-	basket.add walkman
-	basket.add popcorn
+	basket.add Item_Interface.find "skittles_16"
+	basket.add Item_Interface.find "walkman"
+	basket.add Item_Interface.find "popcorn"
 	basket.checkout()
 
 demo_basket_2 = ->
 	basket = new Basket()
-	basket.add coffee_vh
-	basket.add vespa
+	basket.add Item_Interface.find "coffee_vh"
+	basket.add Item_Interface.find "vespa"
 	basket.checkout()
 
 demo_basket_3 = ->
 	basket = new Basket()
-	basket.add snickers_a
-	basket.add discman
-	basket.add wine
-	basket.add coffee_300
+	basket.add Item_Interface.find "snickers_a"
+	basket.add Item_Interface.find "discman"
+	basket.add Item_Interface.find "wine"
+	basket.add Item_Interface.find "coffee_300"
 	basket.checkout()
 
 exports.demo_commands = {demo_basket_1, demo_basket_2, demo_basket_3}

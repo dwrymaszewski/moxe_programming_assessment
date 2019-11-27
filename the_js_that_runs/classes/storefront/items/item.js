@@ -3,7 +3,21 @@
   var Item;
 
   Item = class Item {
-    constructor(good, quantity) {}
+    constructor(good1, quantity = 1) {
+      this.good = good1;
+      this.quantity = quantity;
+    }
+
+    get_description() {
+      if (this.description == null) {
+        this.description = good.name + " at " + this.quantity * good.price.amount;
+      }
+      return this.description;
+    }
+
+    flag_imported() {
+      return this.imported = true;
+    }
 
   };
 

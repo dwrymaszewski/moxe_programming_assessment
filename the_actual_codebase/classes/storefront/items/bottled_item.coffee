@@ -1,0 +1,1 @@
+class Bottled_Item extends Item

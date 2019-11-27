@@ -1,0 +1,1 @@
+class Crated_Item extends Item

@@ -34,11 +34,10 @@
   };
 
   input_handler = function(input) {
-    console.log(recognized_commands);
     if (recognized_commands[input] != null) {
       return recognized_commands[input]();
     } else {
-      return bad_command_message;
+      return console.log(bad_command_message);
     }
   };
 

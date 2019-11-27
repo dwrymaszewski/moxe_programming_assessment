@@ -34,6 +34,6 @@
 
   }).call(this);
 
-  exports.basket = basket;
+  exports.Basket = Basket;
 
 }).call(this);

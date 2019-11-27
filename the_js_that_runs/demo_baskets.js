@@ -7,27 +7,27 @@
   demo_basket_1 = function() {
     var basket;
     basket = new Basket();
-    basket.add(skittles_16);
-    basket.add(walkman);
-    basket.add(popcorn);
+    basket.add(get_item("skittles_16"));
+    basket.add(get_item("walkman"));
+    basket.add(get_item("popcorn"));
     return basket.checkout();
   };
 
   demo_basket_2 = function() {
     var basket;
     basket = new Basket();
-    basket.add(coffee_vh);
-    basket.add(vespa);
+    basket.add(get_item("coffee_vh"));
+    basket.add(get_item("vespa"));
     return basket.checkout();
   };
 
   demo_basket_3 = function() {
     var basket;
     basket = new Basket();
-    basket.add(snickers_a);
-    basket.add(discman);
-    basket.add(wine);
-    basket.add(coffee_300);
+    basket.add(get_item("snickers_a"));
+    basket.add(get_item("discman"));
+    basket.add(get_item("wine"));
+    basket.add(get_item("coffee_300"));
     return basket.checkout();
   };
 

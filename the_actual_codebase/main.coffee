@@ -29,12 +29,11 @@ recognized_commands.exit = -> command_line.close()
 recognized_commands.custom_basket = -> throw "TODO: get this to pre-alpha"
 
 input_handler = (input)->
-	console.log recognized_commands
 
 	if recognized_commands[input]?
 		return recognized_commands[input]()
 	else
-		return bad_command_message
+		return console.log bad_command_message
 
 command_line.prompt()
 command_line.on 'line', input_handler

@@ -9,15 +9,15 @@
     "mocha": "^6.2.2"
   },
   "scripts": {
-		"test": "mocha"
-	},
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "moxe_programming_assessment"
   },
   "author": "Daniel Rymaszewski",
-	"license": "ISC",
-	"mocha":{
-		"spec": "./the_js_that_runs/**/*.test.js"
-	}
+  "license": "ISC",
+  "mocha": {
+    "spec": "./the_js_that_runs/**/*.test.js"
+  }
 }

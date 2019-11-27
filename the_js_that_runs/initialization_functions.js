@@ -2,17 +2,43 @@
 (function() {
   ({
     initialize_goods: function() {
-      var a_snickers, discman, ft_coffee, popcorn, skittles, vespa, vh_coffee, walkman, wine;
-      skittles = new Candy("Skittles", 1, "lb");
-      walkman = new Good("Walkman", 99.99);
-      popcorn = new Popcorn("microwave Popcorn", .99);
-      vh_coffee = new Coffee("Vanilla-Hazelnut Coffee", 11);
-      vespa = new Good("Vespa", 15001.25);
-      a_snickers = new Candy("Almond Snickers", 75.99);
-      discman = new Good("Discman", 55);
-      wine = new Good("Wine", 10);
-      ft_coffee = new Coffee("Fair-Trade Coffee", 997.99 / 300, "lb");
-      return global.all_goods = {skittles, walkman, popcorn, vh_coffee, vespa, a_snickers, discman, wine, ft_coffee};
+      var all_goods, computer_name, good_object, goods_bucket, i, len;
+      goods_bucket = {
+        skittles: new Candy("Skittles", 1, "lb"),
+        walkman: new Good("Walkman", 99.99),
+        popcorn: new Popcorn("microwave Popcorn", .99),
+        vh_coffee: new Coffee("Vanilla-Hazelnut Coffee", 11),
+        vespa: new Good("Vespa", 15001.25),
+        a_snickers: new Candy("Almond Snickers", 75.99),
+        discman: new Good("Discman", 55),
+        wine: new Good("Wine", 10),
+        ft_coffee: new Coffee("Fair-Trade Coffee", 997.99 / 300, "lb")
+      };
+      all_goods = {};
+      for (good_object = i = 0, len = goods_bucket.length; i < len; good_object = ++i) {
+        computer_name = goods_bucket[good_object];
+        all_goods[computer_name] = good_object;
+      }
+      return global.all_goods = all_goods;
+    },
+    initialize_items: function() {
+      var computer_name, i, item_bucket, item_object, len;
+      item_bucket = {
+        skittles_16: new Bagged_Item(Good_Interface.find("skittles"), 16),
+        walkman: new Item(Good_Interface.find("walkman")),
+        popcorn: new Bagged_Item(Good_Interface.find("popcorn")),
+        coffee_vh: new Bagged_Item(Good_Interface.find("vh_coffee")).flag_imported(),
+        vespa: new Item(Good_Interface.find("vespa")).flag_imported(),
+        snickers_a: new Crated_Item(Good_Interface.find("a_snickers")).flag_imported(),
+        discman: new Item(Good_Interface.find("discman")),
+        wine: new Bottled_Item(Good_Interface.find("wine")).flag_imported(),
+        coffee_300: new Bagged_Item(Good_Interface.find("ft_coffee"), 300)
+      };
+      for (item_object = i = 0, len = item_bucket.length; i < len; item_object = ++i) {
+        computer_name = item_bucket[item_object];
+        all_items[computer_name] = item_object;
+      }
+      return global.all_items = all_items;
     },
     initialize_taxes: function() {
       var import_duty, sales_tax;
@@ -21,8 +47,10 @@
       import_duty = new inclusive_tax("Import Duty", .05);
       import_duty.set_inclusions(["imported"]);
       return global.all_taxes = {sales_tax, import_duty};
-    },
-    initialize_catalog: function() {}
+    }
   });
+
+  // initialize_catalog: ->
+  exports.initializations = {initialize_goods, initialize_items, initialize_taxes};
 
 }).call(this);

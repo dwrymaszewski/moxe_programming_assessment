@@ -15,4 +15,4 @@ class Basket
 
 	create_receipt: ->
 
-exports.basket = basket
+exports.Basket = Basket

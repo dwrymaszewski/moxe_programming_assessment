@@ -1,0 +1,1 @@
+class Boxed_Item extends Item
