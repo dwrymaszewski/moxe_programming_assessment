@@ -4,8 +4,9 @@ Good = require('./classes/goods/good').Good
 Popcorn = require('./classes/goods/popcorn').Popcorn
 Bagged_Item = require('./classes/items/bagged_item').Bagged_Item
 Bottled_Item = require('./classes/items/bottled_item').Bottled_Item
-Crated_Item = require('./classes/itmes/crated_item').Crated_Item
+Crated_Item = require('./classes/items/crated_item').Crated_Item
 Item = require('./classes/items/item').Item
+Good_Interface = require('./data_interfaces/good_interface').Good_Interface
 
 initialize_goods = ->
 	goods_bucket = 
@@ -19,13 +20,23 @@ initialize_goods = ->
 		wine: new Good "Wine", 10
 		ft_coffee: new Coffee "Fair-Trade Coffee", 997.99/300, "lb"
 
+	console.log "goods_bucket", goods_bucket
+
 	all_goods = {}
-	for computer_name, good_object in goods_bucket
+	for computer_name, good_object of goods_bucket
+		console.log "computer_name", computer_name
+		console.log "good_object", good_object
 		all_goods[computer_name] = good_object
+
+	console.log "all_goods", all_goods
 
 	global.all_goods = all_goods
 
 initialize_items = ->
+	console.log "this is running"
+	console.log global
+
+
 	item_bucket = 
 		skittles_16: new Bagged_Item Good_Interface.find("skittles"), 16
 		walkman: new Item Good_Interface.find("walkman")

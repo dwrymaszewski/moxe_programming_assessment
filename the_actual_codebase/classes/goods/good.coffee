@@ -1,6 +1,6 @@
 class Good
 	constructor: (@name, @price, @unit_of_measure)->
-		ensure_a_currency()
+		@ensure_a_currency()
 
 	ensure_a_currency: ->
 		if typeof @price is 'number'

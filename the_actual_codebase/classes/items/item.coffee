@@ -1,7 +1,7 @@
 class Item
 	constructor: (@good, @quantity=1)->
 		if @good?
-			set_price()
+			@set_price()
 		else
 			throw "A Good is required to create an Item"
 		

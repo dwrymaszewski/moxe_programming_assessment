@@ -8,7 +8,7 @@
         this.name = name;
         this.price = price;
         this.unit_of_measure = unit_of_measure;
-        ensure_a_currency();
+        this.ensure_a_currency();
       }
 
       ensure_a_currency() {
