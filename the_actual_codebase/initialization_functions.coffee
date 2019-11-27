@@ -41,8 +41,13 @@ initialize_goods: ->
 	wine_properties = {}
 
 initialize_taxes: ->
-	sales_tax = new tax_with_exceptions .1, ["candy", "popcorn", "coffee"]
-	import_duty = new tax_with_applications .05, ["imported"]
+	sales_tax = new exclusive_tax "Basic Sales Tax", .1
+	sales_tax.set_exclusions ["candy", "popcorn", "coffee"]
+
+	import_duty = new inclusive_tax "Import Duty", .05
+	import_duty.set_inclusions ["imported"]
+
+	global.all_taxes = {sales_tax, import_duty}
 
 initialize_catalog: ->
 	
