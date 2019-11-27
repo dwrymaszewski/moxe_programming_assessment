@@ -25,26 +25,26 @@
 
       checkout() {
         var i, item, len, ref;
-        ref = this.items;
-        for (i = 0, len = ref.length; i < len; i++) {
-          item = ref[i];
-          item.apply_taxes(Tax_Interface.get_all());
-        }
-        return this.print_receipt();
-      }
-
-      // TODO: consider spinning this into a receipt class?
-      print_receipt() {
-        var i, item, len, ref;
         this.sub_total = 0;
         this.tax_total = 0;
         this.grand_total = 0;
         ref = this.items;
         for (i = 0, len = ref.length; i < len; i++) {
           item = ref[i];
-          console.log(item.get_description_with_taxes);
+          item.apply_taxes(Tax_Interface.get_all());
           this.sub_total += item.get_price().amount;
           this.tax_total += item.get_total_tax_price().amount;
+        }
+        return this.grand_total = this.sub_total + this.tax_total;
+      }
+
+      print_receipt(header) {
+        var i, item, len, ref;
+        console.log(header);
+        ref = this.items;
+        for (i = 0, len = ref.length; i < len; i++) {
+          item = ref[i];
+          console.log(item.get_description_with_taxes());
         }
         console.log(this.get_sales_tax_line());
         return console.log(this.get_total_line());

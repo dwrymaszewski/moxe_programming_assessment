@@ -14,11 +14,13 @@
 
     get_tax_price(price) {
       var tax_price, taxable_amount;
-      taxable_amount = price.amount;
+      taxable_amount = price.amount * this.rate;
+      console.log("taxable_amount", taxable_amount);
       tax_price = {
         amount: this.round_tax(taxable_amount),
         currency: price.currency
       };
+      console.log("tax_price", tax_price);
       return tax_price;
     }
 

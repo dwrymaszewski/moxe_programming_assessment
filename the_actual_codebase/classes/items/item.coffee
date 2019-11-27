@@ -12,7 +12,7 @@ class Item
 		return @description
 
 	get_description_with_taxes: ->
-		@description_with_taxes ?= @good.name + ": " + @get_price_with_taxes().amount
+		@description_with_taxes ?= @good.name + ": " + @get_price_amount_with_taxes()
 		return @description_with_taxes
 
 	set_price: ->
@@ -23,14 +23,13 @@ class Item
 	get_price: ->
 		@price
 
-	get_price_with_taxes: ->
-		total_taxed_amount = @get_total_tax_price().amount
-		return @get_price().amount + total_taxed_amount
+	get_price_amount_with_taxes: ->
+		@get_price().amount + @get_total_tax_price().amount
 
 	get_total_tax_price: ->
 		@total_tax_price = 
 			amount: 0
-			currency: @get_price()currency
+			currency: @get_price().currency
 
 		for tax_price in Object.values @taxes_applied
 			@total_tax_price.amount += tax_price.amount

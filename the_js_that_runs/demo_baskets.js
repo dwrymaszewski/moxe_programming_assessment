@@ -13,6 +13,7 @@
     basket.add(Item_Interface.find("walkman"));
     basket.add(Item_Interface.find("popcorn"));
     basket.checkout();
+    basket.print_receipt("Output 1:");
     return console.log("demo_basket_1 didn't explode!");
   };
 
@@ -21,7 +22,8 @@
     basket = new Basket();
     basket.add(Item_Interface.find("coffee_vh"));
     basket.add(Item_Interface.find("vespa"));
-    return basket.checkout();
+    basket.checkout();
+    return basket.print_receipt("Output 2:");
   };
 
   demo_basket_3 = function() {
@@ -31,7 +33,8 @@
     basket.add(Item_Interface.find("discman"));
     basket.add(Item_Interface.find("wine"));
     basket.add(Item_Interface.find("coffee_300"));
-    return basket.checkout();
+    basket.checkout();
+    return basket.print_receipt("Output 3:");
   };
 
   exports.demo_commands = {demo_basket_1, demo_basket_2, demo_basket_3};

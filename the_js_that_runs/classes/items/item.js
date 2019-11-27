@@ -24,7 +24,7 @@
 
       get_description_with_taxes() {
         if (this.description_with_taxes == null) {
-          this.description_with_taxes = this.good.name + ": " + this.get_price_with_taxes().amount;
+          this.description_with_taxes = this.good.name + ": " + this.get_price_amount_with_taxes();
         }
         return this.description_with_taxes;
       }
@@ -40,14 +40,24 @@
         return this.price;
       }
 
-      get_price_with_taxes() {
-        var total_taxed_amount;
-        total_taxed_amount = this.get_total_tax_price().amount;
-        return this.get_price().amount + total_taxed_amount;
+      get_price_amount_with_taxes() {
+        return this.get_price().amount + this.get_total_tax_price().amount;
       }
 
-      // get_total_tax_price: ->
-      // 	for 
+      get_total_tax_price() {
+        var i, len, ref, tax_price;
+        this.total_tax_price = {
+          amount: 0,
+          currency: this.get_price().currency
+        };
+        ref = Object.values(this.taxes_applied);
+        for (i = 0, len = ref.length; i < len; i++) {
+          tax_price = ref[i];
+          this.total_tax_price.amount += tax_price.amount;
+        }
+        return this.total_tax_price;
+      }
+
       flag_imported() {
         return this.imported = true;
       }

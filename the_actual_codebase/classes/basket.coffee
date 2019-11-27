@@ -15,23 +15,22 @@ class Basket
 			console.log item.get_description()
 	
 	checkout: ->
-		for item in @items
-			item.apply_taxes Tax_Interface.get_all()
-
-		@print_receipt()
-
-
-# TODO: consider spinning this into a receipt class?
-
-	print_receipt: ->
 		@sub_total = 0
 		@tax_total = 0
 		@grand_total = 0
+	
+		for item in @items
+			item.apply_taxes Tax_Interface.get_all()
+			@sub_total += item.get_price().amount
+			@tax_total += item.get_total_tax_price().amount
+
+		@grand_total = @sub_total + @tax_total
+
+	print_receipt: (header)->
+		console.log header
 
 		for item in @items
 			console.log item.get_description_with_taxes()
-			@sub_total += item.get_price().amount
-			@tax_total += item.get_total_tax_price().amount
 		
 		console.log @get_sales_tax_line()
 		console.log @get_total_line()
