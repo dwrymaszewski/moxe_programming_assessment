@@ -1,6 +1,6 @@
-tax = requires('./tax').tax
+Tax = requires('./tax').Tax
 
-class Inclusive_tax extends Tax
+class Inclusive_Tax extends Tax
 
 	set_inclusions: (@inclusions)->
 
@@ -12,4 +12,4 @@ class Inclusive_tax extends Tax
 				break
 		return apply_it
 
-exports.inclusive_tax = inclusive_tax
+exports.Inclusive_Tax = Inclusive_Tax

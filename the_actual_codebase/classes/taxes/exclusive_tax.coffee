@@ -1,4 +1,6 @@
-class Exclusive_tax extends Tax
+Tax = requires('./tax').Tax
+
+class Exclusive_Tax extends Tax
 
 	set_exclusions: (@exclusions)->
 		
@@ -10,4 +12,4 @@ class Exclusive_tax extends Tax
 				break
 		return apply_it
 
-exports.exclusive_tax = exclusive_tax
+exports.Exclusive_Tax = Exclusive_Tax

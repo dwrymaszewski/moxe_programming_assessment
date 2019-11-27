@@ -39,6 +39,6 @@
 
   };
 
-  exports.tax = tax;
+  exports.Tax = Tax;
 
 }).call(this);

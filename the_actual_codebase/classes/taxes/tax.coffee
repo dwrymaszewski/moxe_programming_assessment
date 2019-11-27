@@ -21,4 +21,4 @@ class Tax
 		amount = working_amount / 20
 		return amount
 
-exports.tax = tax
+exports.Tax = Tax

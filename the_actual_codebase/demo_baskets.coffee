@@ -1,3 +1,5 @@
+Basket = require('./classes/basket').Basket
+
 demo_basket_1 = ->
 	basket = new Basket()
 	basket.add skittles_16
