@@ -1,8 +1,8 @@
 class Item_Interface
-	insert: (item)->
+	@insert: (item)->
 		global.all_items[item.name] = item
 
-	find: (item_name)->
+	@find: (item_name)->
 		return global.all_items[item_name]
 
 exports.Item_Interface = Item_Interface

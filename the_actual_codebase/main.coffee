@@ -3,7 +3,12 @@
 # initialize_taxes
 
 readline = require 'readline'
+initialization_functions = require('./initialization_functions').initializations
 demo_commands = require('./demo_baskets').demo_commands
+
+initialization_functions.initialize_goods
+initialization_functions.initialize_items
+initialization_functions.initialize_taxes
 
 main_prompt = '''Howdy!
 	Try typing the commands:

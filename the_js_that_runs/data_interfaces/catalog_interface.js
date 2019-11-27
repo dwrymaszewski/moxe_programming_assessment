@@ -3,11 +3,11 @@
   var Catalog_Interface;
 
   Catalog_Interface = class Catalog_Interface {
-    insert(catalog) {
+    static insert(catalog) {
       return global[catalog.name] = catalog;
     }
 
-    find(catalog_name) {
+    static find(catalog_name) {
       return global[catalog_name];
     }
 

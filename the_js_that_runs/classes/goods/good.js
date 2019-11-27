@@ -2,26 +2,40 @@
 (function() {
   var Good;
 
-  Good = class Good {
-    constructor(description) {
-      this.description = description;
-    }
-
-    set_price(price, unit_of_measure) {
-      this.price = price;
-      this.unit_of_measure = unit_of_measure;
-    }
-
-    apply_taxes(tax_array) {
-      var i, len, results, tax;
-      results = [];
-      for (i = 0, len = tax_array.length; i < len; i++) {
-        tax = tax_array[i];
-        results.push("sup");
+  Good = (function() {
+    class Good {
+      constructor(name, price, unit_of_measure) {
+        this.name = name;
+        this.price = price;
+        this.unit_of_measure = unit_of_measure;
+        ensure_a_currency();
       }
-      return results;
-    }
 
-  };
+      ensure_a_currency() {
+        if (typeof this.price === 'number') {
+          return this.price = {
+            amount: this.price,
+            currency: this.default_currency
+          };
+        }
+      }
+
+      apply_taxes(tax_array) {
+        var i, len, results, tax;
+        results = [];
+        for (i = 0, len = tax_array.length; i < len; i++) {
+          tax = tax_array[i];
+          results.push("sup");
+        }
+        return results;
+      }
+
+    };
+
+    Good.prototype.default_currency = "USD";
+
+    return Good;
+
+  }).call(this);
 
 }).call(this);

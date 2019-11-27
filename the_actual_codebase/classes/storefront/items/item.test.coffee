@@ -1,5 +1,5 @@
 assert = require 'assert'
-Item = require (./item).Item
+Item = require ('./item').Item
 
 good_good =
 	name: good_test_good

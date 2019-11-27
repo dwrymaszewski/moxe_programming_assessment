@@ -3,16 +3,26 @@
   var Item;
 
   Item = class Item {
-    constructor(good1, quantity = 1) {
-      this.good = good1;
+    constructor(good, quantity = 1) {
+      this.good = good;
       this.quantity = quantity;
+      if (this.good != null) {
+        set_price();
+      } else {
+        throw "A Good is required to create an Item";
+      }
     }
 
     get_description() {
       if (this.description == null) {
-        this.description = good.name + " at " + this.quantity * good.price.amount;
+        this.description = this.good.name + " at " + this.price;
       }
       return this.description;
+    }
+
+    set_price() {
+      var ref;
+      return this.price = this.quantity * ((ref = this.good.price) != null ? ref.amount : void 0);
     }
 
     flag_imported() {
@@ -20,5 +30,7 @@
     }
 
   };
+
+  exports.Item = Item;
 
 }).call(this);
