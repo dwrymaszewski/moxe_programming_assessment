@@ -3,11 +3,12 @@ class Tax
 
 	should_apply: (item)-> true
 	
-	apply_to: (item)->
-		tax_amount = item.price.amount * @rate
-		item[@name] = 
-			amount: @round_tax(tax_amount)
-			currency: item.price.currency
+	get_tax_price: (price)->
+		taxable_amount = price.amount
+		tax_price =
+			amount: @round_tax(taxable_amount)
+			currency: price.currency
+		return tax_price
 
 	round_tax: (amount)->
 		switch
@@ -17,7 +18,7 @@ class Tax
 				return @round_to_nickel(amount)
 
 	round_to_nickel: (amount)->
-		working_amount = Math.ceil amount * 20
+		working_amount = Math.ceil(amount * 20)
 		amount = working_amount / 20
 		return amount
 

@@ -12,7 +12,8 @@
     basket.add(Item_Interface.find("skittles_16"));
     basket.add(Item_Interface.find("walkman"));
     basket.add(Item_Interface.find("popcorn"));
-    return basket.checkout();
+    basket.checkout();
+    return console.log("demo_basket_1 didn't explode!");
   };
 
   demo_basket_2 = function() {

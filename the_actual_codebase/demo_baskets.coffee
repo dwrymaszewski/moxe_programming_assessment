@@ -7,6 +7,7 @@ demo_basket_1 = ->
 	basket.add Item_Interface.find "walkman"
 	basket.add Item_Interface.find "popcorn"
 	basket.checkout()
+	console.log "demo_basket_1 didn't explode!"
 
 demo_basket_2 = ->
 	basket = new Basket()
