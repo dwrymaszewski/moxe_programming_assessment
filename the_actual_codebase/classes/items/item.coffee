@@ -24,6 +24,9 @@ class Item
 		@price
 
 	get_price_amount_with_taxes: ->
+		console.log @get_price().amount
+		console.log @get_total_tax_price().amount
+
 		@get_price().amount + @get_total_tax_price().amount
 
 	get_total_tax_price: ->

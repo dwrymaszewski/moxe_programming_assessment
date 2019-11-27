@@ -37,6 +37,7 @@
       wine: new Good("Wine", 10),
       ft_coffee: new Coffee("Fair-Trade Coffee", 997.99 / 300, "lb")
     };
+    console.log("skittle good", goods_bucket.skittles);
     all_goods = {};
     for (computer_name in goods_bucket) {
       good_object = goods_bucket[computer_name];
@@ -58,6 +59,7 @@
       wine: new Bottled_Item(Good_Interface.find("wine")).flag_imported(),
       coffee_300: new Bagged_Item(Good_Interface.find("ft_coffee"), 300)
     };
+    console.log("skittle item", item_bucket.skittles_16);
     all_items = {};
     for (computer_name in item_bucket) {
       item_object = item_bucket[computer_name];

@@ -41,6 +41,8 @@
       }
 
       get_price_amount_with_taxes() {
+        console.log(this.get_price().amount);
+        console.log(this.get_total_tax_price().amount);
         return this.get_price().amount + this.get_total_tax_price().amount;
       }
 
