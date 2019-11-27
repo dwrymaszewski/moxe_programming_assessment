@@ -36,14 +36,19 @@ initialize_items = ->
 		skittles_16: new Bagged_Item Good_Interface.find("skittles"), 16
 		walkman: new Item Good_Interface.find("walkman")
 		popcorn: new Bagged_Item Good_Interface.find("popcorn")
-		coffee_vh: new Bagged_Item( Good_Interface.find("vh_coffee") ).flag_imported()
-		vespa: new Item( Good_Interface.find("vespa") ).flag_imported()
-		snickers_a: new Crated_Item( Good_Interface.find("a_snickers") ).flag_imported()
+		coffee_vh: new Bagged_Item Good_Interface.find("vh_coffee")
+		vespa: new Item Good_Interface.find("vespa")
+		snickers_a: new Crated_Item Good_Interface.find("a_snickers")
 		discman: new Item Good_Interface.find("discman")
-		wine: new Bottled_Item( Good_Interface.find("wine") ).flag_imported()
+		wine: new Bottled_Item Good_Interface.find("wine")
 		coffee_300: new Bagged_Item Good_Interface.find("ft_coffee"), 300
 
 	console.log "skittle item", item_bucket.skittles_16
+
+	item_bucket.coffee_vh.flag_imported()
+	item_bucket.vespa.flag_imported()
+	item_bucket.snickers_a.flag_imported()
+	item_bucket.wine.flag_imported()
 
 	all_items = {}
 	for computer_name, item_object of item_bucket
