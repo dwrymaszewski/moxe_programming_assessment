@@ -4,8 +4,17 @@
 
   Item = require('./item').Item;
 
-  Bottled_Item = class Bottled_Item extends Item {};
+  Bottled_Item = (function() {
+    class Bottled_Item extends Item {};
 
+    Bottled_Item.prototype.packaging = "bottle";
+
+    return Bottled_Item;
+
+  }).call(this);
+
+  // constructor: (good, quantity=1)->
+  // 	super(good, quantity)
   exports.Bottled_Item = Bottled_Item;
 
 }).call(this);

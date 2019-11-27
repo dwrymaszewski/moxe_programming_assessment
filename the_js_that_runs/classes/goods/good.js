@@ -3,36 +3,28 @@
   var Good;
 
   Good = (function() {
+    var default_currency, ensure_a_currency;
+
     class Good {
       constructor(name, price, unit_of_measure) {
         this.name = name;
         this.price = price;
         this.unit_of_measure = unit_of_measure;
-        this.ensure_a_currency();
-      }
-
-      ensure_a_currency() {
-        if (typeof this.price === 'number') {
-          return this.price = {
-            amount: this.price,
-            currency: this.default_currency
-          };
-        }
-      }
-
-      apply_taxes(tax_array) {
-        var i, len, results, tax;
-        results = [];
-        for (i = 0, len = tax_array.length; i < len; i++) {
-          tax = tax_array[i];
-          results.push("sup");
-        }
-        return results;
+        ensure_a_currency();
       }
 
     };
 
-    Good.prototype.default_currency = "USD";
+    ensure_a_currency = function() {
+      if (typeof this.price === 'number') {
+        return this.price = {
+          amount: this.price,
+          currency: default_currency
+        };
+      }
+    };
+
+    default_currency = "USD";
 
     return Good;
 

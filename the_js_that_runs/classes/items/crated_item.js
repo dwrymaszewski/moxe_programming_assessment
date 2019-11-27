@@ -4,8 +4,17 @@
 
   Item = require('./item').Item;
 
-  Crated_Item = class Crated_Item extends Item {};
+  Crated_Item = (function() {
+    class Crated_Item extends Item {};
 
+    Crated_Item.prototype.packaging = "crate";
+
+    return Crated_Item;
+
+  }).call(this);
+
+  // constructor: (good, quantity=1)->
+  // 	super(good, quantity)
   exports.Crated_Item = Crated_Item;
 
 }).call(this);

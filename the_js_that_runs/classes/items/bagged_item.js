@@ -13,6 +13,8 @@
 
   }).call(this);
 
+  // constructor: (good, quantity=1)->
+  // 	super(good, quantity)
   exports.Bagged_Item = Bagged_Item;
 
 }).call(this);
