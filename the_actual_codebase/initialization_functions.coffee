@@ -1,4 +1,13 @@
-initialize_goods: ->
+Candy = require('./classes/goods/candy').Candy
+Coffee = require('./classes/goods/coffee').Coffee
+Good = require('./classes/goods/good').Good
+Popcorn = require('./classes/goods/popcorn').Popcorn
+Bagged_Item = require('./classes/items/bagged_item').Bagged_Item
+Bottled_Item = require('./classes/items/bottled_item').Bottled_Item
+Crated_Item = require('./classes/itmes/crated_item').Crated_Item
+Item = require('./classes/items/item').Item
+
+initialize_goods = ->
 	goods_bucket = 
 		skittles: new Candy "Skittles", 1, "lb"
 		walkman: new Good "Walkman", 99.99
@@ -16,7 +25,7 @@ initialize_goods: ->
 
 	global.all_goods = all_goods
 
-initialize_items: ->
+initialize_items = ->
 	item_bucket = 
 		skittles_16: new Bagged_Item Good_Interface.find("skittles"), 16
 		walkman: new Item Good_Interface.find("walkman")
@@ -31,9 +40,15 @@ initialize_items: ->
 	for computer_name, item_object in item_bucket
 		all_items[computer_name] = item_object
 
+	console.log "this is running"
+	console.log global
+
 	global.all_items = all_items
 
-initialize_taxes: ->
+	console.log "this is ran"
+	console.log global
+
+initialize_taxes = ->
 	sales_tax = new exclusive_tax "Basic Sales Tax", .1
 	sales_tax.set_exclusions ["candy", "popcorn", "coffee"]
 

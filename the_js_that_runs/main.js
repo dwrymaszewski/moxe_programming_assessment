@@ -3,11 +3,21 @@
   // initialize_goods
   // initialize_catalog
   // initialize_taxes
-  var bad_command_message, command_line, demo_commands, input_handler, main_prompt, readline, recognized_commands;
+  var bad_command_message, command_line, demo_commands, initialization_functions, input_handler, main_prompt, readline, recognized_commands;
 
   readline = require('readline');
 
+  initialization_functions = require('./initialization_functions').initializations;
+
   demo_commands = require('./demo_baskets').demo_commands;
+
+  console.log(initialization_functions);
+
+  initialization_functions.initialize_goods();
+
+  initialization_functions.initialize_items();
+
+  initialization_functions.initialize_taxes();
 
   main_prompt = 'Howdy!\nTry typing the commands:\n"demo_basket_1"\n"demo_basket_2"\n"demo_basket_3"\nor try your luck at "custom_basket" (pre-pre-alpha)\n\nType "exit" to quit.\n';
 

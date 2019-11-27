@@ -38,4 +38,6 @@
 
   }).call(this);
 
+  exports.Good = Good;
+
 }).call(this);
