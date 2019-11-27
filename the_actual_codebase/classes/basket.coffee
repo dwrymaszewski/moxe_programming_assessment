@@ -3,7 +3,6 @@ Tax_Interface = require('./../data_interfaces/tax_interface').Tax_Interface
 class Basket
 	items: []
 
-
 	add: (item_to_add)->
 		@items.push item_to_add
 
