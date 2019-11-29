@@ -4,15 +4,14 @@
 
   Good = require('./good').Good;
 
-  Coffee = (function() {
-    // this file name is kinda silly
-    class Coffee extends Good {};
+  // this file name is kinda silly
+  Coffee = class Coffee extends Good {
+    constructor(name, price, unit_of_measure) {
+      super(name, price, unit_of_measure);
+      this.coffee = true;
+    }
 
-    Coffee.prototype.coffee = true;
-
-    return Coffee;
-
-  }).call(this);
+  };
 
   exports.Coffee = Coffee;
 

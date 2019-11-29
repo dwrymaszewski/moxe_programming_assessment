@@ -4,14 +4,13 @@
 
   Good = require('./good').Good;
 
-  Popcorn = (function() {
-    class Popcorn extends Good {};
+  Popcorn = class Popcorn extends Good {
+    constructor(name, price, unit_of_measure) {
+      super(name, price, unit_of_measure);
+      this.popcorn = true;
+    }
 
-    Popcorn.prototype.popcorn = true;
-
-    return Popcorn;
-
-  }).call(this);
+  };
 
   exports.Popcorn = Popcorn;
 

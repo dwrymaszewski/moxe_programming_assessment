@@ -4,14 +4,13 @@
 
   Good = require('./good').Good;
 
-  Candy = (function() {
-    class Candy extends Good {};
+  Candy = class Candy extends Good {
+    constructor(name, price, unit_of_measure) {
+      super(name, price, unit_of_measure);
+      this.candy = true;
+    }
 
-    Candy.prototype.candy = true;
-
-    return Candy;
-
-  }).call(this);
+  };
 
   exports.Candy = Candy;
 

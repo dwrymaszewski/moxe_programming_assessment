@@ -1,10 +1,11 @@
 Tax_Interface = require('./../data_interfaces/tax_interface').Tax_Interface
 
 class Basket
-	items: []
+	constructor: -> @items = []
 
 	add: (item_to_add)->
-		@items.push item_to_add
+		fresh_item = Object.create item_to_add
+		@items.push fresh_item
 
 	# remove: (item_to_remove)->
 	# 	@items = @items.filter item -> item.name isnt item_to_remove.name
@@ -19,6 +20,7 @@ class Basket
 		@grand_total = 0
 	
 		for item in @items
+			console.log 'out item', item
 			item.apply_taxes Tax_Interface.get_all()
 			@sub_total += item.get_price().amount
 			@tax_total += item.get_total_tax_price().amount
