@@ -6,8 +6,11 @@ class Good
 		if typeof @price is 'number'
 			@price =
 				amount: @price
-				currency: @default_currency
+				currency: @get_default_currency()
+		# else unless Price.is_valid @price
+		else if typeof @price isnt 'object'
+			throw "good created with invalid price argument"
 
-	default_currency: "USD"
+	get_default_currency: -> "USD"
 
 exports.Good = Good

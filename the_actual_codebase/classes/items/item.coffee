@@ -1,7 +1,7 @@
 class Item
-	taxes_applied: {}
 
 	constructor: (@good, @quantity=1)->
+		@taxes_applied = {}
 		if @good?.price?
 			@set_price()
 		else

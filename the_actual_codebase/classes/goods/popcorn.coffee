@@ -1,6 +1,8 @@
 Good = require('./good').Good
 
 class Popcorn extends Good
-	popcorn: true
+	constructor: (name, price, unit_of_measure)->
+		@popcorn = true
+		super name, price, unit_of_measure
 
 exports.Popcorn = Popcorn
