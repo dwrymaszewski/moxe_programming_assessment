@@ -81,8 +81,6 @@
     // tax_price = tax.get_tax_price @price
     apply_tax(tax) {
       var tax_price;
-      console.log("what be tax", tax);
-      console.log("what taxes be applied", this.taxes_applied);
       if (this.taxes_applied[tax.name] != null) {
         throw `The tax ${tax.name} has already been applied to this item`;
       } else {

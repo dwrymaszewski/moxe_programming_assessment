@@ -8,7 +8,6 @@ demo_basket_1 = ->
 	basket.add Item_Interface.find "popcorn"
 	basket.checkout()
 	basket.print_receipt("Output 1:")
-	console.log "demo_basket_1 didn't explode!"
 
 demo_basket_2 = ->
 	basket = new Basket()

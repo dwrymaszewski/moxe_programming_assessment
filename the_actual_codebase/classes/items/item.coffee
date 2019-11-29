@@ -48,9 +48,6 @@ class Item
 				# tax_price = tax.get_tax_price @price
 
 	apply_tax: (tax)->
-		console.log "what be tax", tax
-		console.log "what taxes be applied", @taxes_applied
-
 		if @taxes_applied[tax.name]?
 			throw "The tax #{tax.name} has already been applied to this item"
 		else

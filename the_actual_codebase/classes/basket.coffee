@@ -20,7 +20,6 @@ class Basket
 		@grand_total = 0
 	
 		for item in @items
-			console.log 'out item', item
 			item.apply_taxes Tax_Interface.get_all()
 			@sub_total += item.get_price().amount
 			@tax_total += item.get_total_tax_price().amount

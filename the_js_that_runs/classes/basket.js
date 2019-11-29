@@ -36,7 +36,6 @@
       ref = this.items;
       for (i = 0, len = ref.length; i < len; i++) {
         item = ref[i];
-        console.log('out item', item);
         item.apply_taxes(Tax_Interface.get_all());
         this.sub_total += item.get_price().amount;
         this.tax_total += item.get_total_tax_price().amount;

@@ -13,8 +13,7 @@
     basket.add(Item_Interface.find("walkman"));
     basket.add(Item_Interface.find("popcorn"));
     basket.checkout();
-    basket.print_receipt("Output 1:");
-    return console.log("demo_basket_1 didn't explode!");
+    return basket.print_receipt("Output 1:");
   };
 
   demo_basket_2 = function() {
